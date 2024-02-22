@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      GREETING: 'hello'
+      GREETING: 'Hello'
       # CAPITALIZE: true
 
     steps:
