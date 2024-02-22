@@ -1,0 +1,26 @@
+name: Simple Workflow with Parameters and Conditions
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    parameters:
+      greeting: 'Hello'
+      capitalize: true
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Print Greeting
+        run: |
+          if [ "${{ parameters.capitalize }}" == "true" ]; then
+            echo "${{ parameters.greeting }}" | awk '{print toupper($0)}'
+          else
+            echo "${{ parameters.greeting }}"
+          fi
