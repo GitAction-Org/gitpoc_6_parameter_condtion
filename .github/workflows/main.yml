@@ -10,17 +10,18 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      GREETING: 'Hello'
-      CAPITALIZE: true
+      GREETING: 'hello'
+      # CAPITALIZE: true
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Print Greeting
+      - name: Print Greeting                   #If condition is true then if will convert the greeting touppercase()
+                                               # else it will the greeting
         run: |
           if [ "${{ env.CAPITALIZE }}" == "true" ]; then
-            echo "${{ env.GREETING }}" | awk '{print toupper($0)}'
+            echo "${{ env.GREETING }}" | awk '{print toupper($0)}' l
           else
             echo "${{ env.GREETING }}"
           fi
